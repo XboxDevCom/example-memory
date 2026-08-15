@@ -1,0 +1,84 @@
+<Page
+    x:Class="MemoryGame.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MemoryGame"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    UseSystemFocusVisuals="True"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid Padding="40">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0"
+                    HorizontalAlignment="Center"
+                    FontSize="48"
+                    FontWeight="Bold"
+                    Margin="0,0,0,20"
+                    Text="Memory"/>
+
+        <StackPanel Grid.Row="1"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Center"
+                    Spacing="40"
+                    Margin="0,0,0,20">
+            <StackPanel Orientation="Horizontal" Spacing="10">
+                <TextBlock FontSize="24" Text="Züge:"/>
+                <TextBlock x:Name="MovesText" FontSize="24" FontWeight="SemiBold" Text="0"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Spacing="10">
+                <TextBlock FontSize="24" Text="Paare:"/>
+                <TextBlock x:Name="PairsText" FontSize="24" FontWeight="SemiBold" Text="0 / 8"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Spacing="10">
+                <TextBlock FontSize="24" Text="Zeit:"/>
+                <TextBlock x:Name="TimerText" FontSize="24" FontWeight="SemiBold" Text="0:00"/>
+            </StackPanel>
+        </StackPanel>
+
+        <Grid x:Name="CardGrid"
+              Grid.Row="2"
+              HorizontalAlignment="Center"
+              VerticalAlignment="Center"
+              Margin="0,0,0,20">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+        </Grid>
+
+        <Button x:Name="NewGameButton"
+                Grid.Row="3"
+                HorizontalAlignment="Center"
+                FontSize="24"
+                Padding="30,10"
+                Margin="0,0,0,20"
+                Content="Neues Spiel"
+                Click="NewGameButton_Click"/>
+
+        <TextBlock x:Name="WinText"
+                   Grid.Row="4"
+                   HorizontalAlignment="Center"
+                   FontSize="32"
+                   FontWeight="Bold"
+                   Foreground="Gold"
+                   Visibility="Collapsed"
+                   Text="Herzlichen Glückwunsch! Du hast alle Paare gefunden!"/>
+    </Grid>
+</Page>
